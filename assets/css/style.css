@@ -95,7 +95,7 @@ header .navbar-collapse  ul.navbar-nav {
 }
 
 header .navbar-default{
-    background-color:#6091BA; 
+    background-color:#1D72A3; 
     border-bottom: 2px solid #ffffff;
 }
 header .navbar-default.menuTop{
@@ -255,7 +255,8 @@ header ul.nav li ul li a {
 }
 
 .navbar .nav > .active > a {
-	background:#4678A1;
+	background:#8F1212;
+	/*background:#467-8A1;joned*/
 	font-weight:300;
 	color:#FFFFFF;
 }
@@ -265,7 +266,7 @@ header ul.nav li ul li a {
 	color:#000000;
 }
 .navbar .nav > .menu:hover > a {
-	background:#4678A1;
+	background:#8F1212;
 	font-weight:300;
 	color:#FFFFFF;
 }
@@ -966,8 +967,8 @@ ul.link-list li{
 	list-style:none;
 }
 footer{
-border-top:5px solid #80847E;
-background:#042428;
+border-top:5px solid #4DBAE3;
+background:#1D72A3;
 }
 footer ul.link-list li a{
 	color:#fff;
@@ -1321,8 +1322,8 @@ ul.social-network li {
 	padding:0;
 	padding-top:10px;
 	margin:20px 0 0 0;
-	border-top:5px solid #0F1A1F;
-	background: #001A1B;
+	border-top:5px solid #EF1C27;
+	background: #8F1212;
 }
 
 #sub-footer p{
@@ -2053,7 +2054,7 @@ h1.section-heading {
   color: #2f506c;
 }
 h1.section-heading .line {
-  border-top: 2px solid #6091ba;
+  border-top: 2px solid #1D72A3;
   display: inline-block;
   padding: 0 15px;
   padding-top: 5px;
@@ -2087,7 +2088,7 @@ h1.section-heading .line {
   color: #27435a;
 }
 .highlight-border {
-  border-color: #6091ba;
+  border-color: #1D72A3;
 }
 .read-more {
   -webkit-transition: all 0.4s ease-in-out;
@@ -2128,7 +2129,7 @@ h1.section-heading .line {
   padding-right: 1px;
 }
 .carousel-controls a:hover .fa {
-  background: #6091ba;
+  background: #1D72A3;
 }
 .news .carousel-controls {
   position: absolute;
@@ -2160,7 +2161,7 @@ h1.section-heading .line {
   position: relative;
 }
 .testimonials-carousel .fa {
-  color: #6091ba;
+  color: #1D72A3;
   margin-right: 5px;
   font-size: 18px;
 }
@@ -2171,7 +2172,7 @@ h1.section-heading .line {
   margin-top: 10px;
 }
 .testimonials-carousel .people .name {
-  color: #6091ba;
+  color: #1D72A3;
 }
 .testimonials-carousel .people .title {
   color: #999;
@@ -2203,7 +2204,7 @@ h1.section-heading .line {
   padding-right: 1px;
 }
 .testimonials-carousel .carousel-controls a:hover .fa {
-  background: #6091ba;
+  background: #1D72A3;
 }
 .testimonials {
   position: relative;
@@ -2214,7 +2215,7 @@ h1.section-heading .line {
   top: 10px;
 }
 .testimonials .fa {
-  color: #6091ba;
+  color: #1D72A3;
   margin-right: 5px;
   font-size: 18px;
 }
@@ -2225,7 +2226,7 @@ h1.section-heading .line {
   margin-top: 10px;
 }
 .testimonials .people .name {
-  color: #6091ba;
+  color: #1D72A3;
 }
 .testimonials .people .title {
   color: #999;

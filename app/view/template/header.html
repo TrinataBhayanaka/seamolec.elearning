@@ -87,19 +87,20 @@
 
         
     <div class="navbar logo navbar-default white navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+            <!-- <div class="container"> -->
+                <!-- <div class="navbar-header"> -->
                     
-                    <a class="navbar-brand" href="{$basedomain}"><img src="{$basedomain}assets/img/bsni.jpeg" alt="logo" width="200px"/> 
-                    <p style="border:0px solid #eee;margin-left:220px;margin-top:-70px;color:#281870;font-size:22px;">
-                      E-Learning  Standardisasi  dan<br/> Penilaian  Kesesuaian</p></a>
+                    <a href="{$basedomain}"><img src="{$basedomain}assets/img/header.jpg" alt="logo" width="100%" height="200px"/> 
+                  <!--   <p style="border:0px solid #eee;margin-left:220px;margin-top:-70px;color:#281870;font-size:22px;">
+                      E-Learning  Standardisasi  dan<br/> Penilaian  Kesesuaian</p> -->
+                    </a>
                     
 
-                </div>
+                <!-- </div> -->
 
-            </div>
+            <!-- </div> -->
         </div>
-        <div class="navbar navbar-default navbar-static-top menuTop" >
+        <!-- <div class="navbar navbar-default navbar-static-top menuTop" >
             <div class="container">
                 <div class="navbar-collapse 2 collapse2 " style="overflow:auto;">
                     <ul class="nav menuTop navbar-nav">
@@ -117,8 +118,8 @@
                     </ul>
                 </div>
             </div>
-        </div>
-        
+        </div> -->
+        <div style="margin-bottom:25px;">&nbsp;</div>
         <div class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -132,10 +133,19 @@
                     <ul class="nav navbar-nav">
                         <li class="menu {$classHome}"><a href="{$basedomain}">BERANDA</a></li> 
                       <li class="menu {$classProfil}"><a href="{$basedomain}profil">PROFIL</a></li>
-                      {*}<li class="menu {$classQuiz}"><a href="{$basedomain}">E-LEARNING</a></li>{/*}
                         <li class="menu {$classKursus}"><a href="{$basedomain}kursus">KURSUS</a></li>
                         <li class="menu {$classBerita}"><a href="{$basedomain}berita">BERITA</a></li>
                         <li class="menu {$classTutorial}"><a href="{$basedomain}tutorial">TUTORIAL</a></li>
+                        <li class="menu {$classSearch}" ><a href="{$basedomain}search" ><i class="fa fa-search"></i> Cari  Sertifikat </a></li> 
+                        
+                          {if $user}
+                        <li class="menu"><a href="{$basedomain}home/logout">LOGOUT <i class="fa fa-log-out"></i></a></li>
+                        {else}
+                        <li class="menu"><a href="#" data-toggle="modal" data-target="#myModal">LOGIN <i class="fa fa-sign-in"></i></a></li>
+                        {/if}
+                          {if $user}
+                          <li><h4><i class="fa fa-user"></i> Selamat Datang, <i>{$user.0.name}</i></h4></li>
+                          {/if}
                         {if $user}
                         <li class="menu {$classNilai}"><a href="{$basedomain}user/setting">NILAI</a></li>
                         {/if}
