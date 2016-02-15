@@ -129,7 +129,7 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div>
-                <div class="navbar-collapse collapse " style="overflow:auto">
+                <div class="navbar-collapse collapse " style="overflow:auto;">
                     <ul class="nav navbar-nav">
                         <li class="menu {$classHome}"><a href="{$basedomain}">HOME</a></li> 
                       <li class="menu {$classProfil}"><a href="{$basedomain}profil">PROFILE</a></li>
@@ -138,17 +138,17 @@
                         <li class="menu {$classTutorial}"><a href="{$basedomain}tutorial">TUTORIAL</a></li>
                         <li class="menu {$classSearch}" ><a href="{$basedomain}search" ><i class="fa fa-search"></i> CERTIFICATES </a></li> 
                         
+                        {if $user}
+                        <li class="menu {$classNilai}"><a href="{$basedomain}user/setting">NILAI</a></li>
+                        {/if}
                           {if $user}
                         <li class="menu"><a href="{$basedomain}home/logout">LOGOUT <i class="fa fa-log-out"></i></a></li>
                         {else}
                         <li class="menu"><a href="#" data-toggle="modal" data-target="#myModal">LOGIN <i class="fa fa-sign-in"></i></a></li>
                         {/if}
                           {if $user}
-                          <li><h4><i class="fa fa-user"></i> Selamat Datang, <i>{$user.0.name}</i></h4></li>
+                          <li class="menu"><a href="#"><i class="fa fa-user"></i> Selamat Datang, <i>{$user.0.name}</i></a></li>
                           {/if}
-                        {if $user}
-                        <li class="menu {$classNilai}"><a href="{$basedomain}user/setting">NILAI</a></li>
-                        {/if}
                     </ul>
                 </div>
             </div>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 16, 2016 at 02:41 AM
+-- Generation Time: Feb 16, 2016 at 02:55 AM
 -- Server version: 5.5.43-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.11
 
@@ -295,7 +295,14 @@ CREATE TABLE IF NOT EXISTS `nilai` (
   `data` varchar(255) DEFAULT NULL,
   `n_status` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`idNilai`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `nilai`
+--
+
+INSERT INTO `nilai` (`idNilai`, `nilai`, `benar`, `salah`, `statusulang`, `statuskelulusan`, `create_time`, `idUser`, `idGroupKursus`, `idKursus`, `kodeSertifikat`, `data`, `n_status`) VALUES
+(1, 100, 1, 0, 0, 1, '2016-02-15 19:47:58', 2268, 11, 2, 'ELS/1/XVI', 'a:2:{s:9:"testimoni";s:19:"Nice, very helpfull";s:16:"status_testimoni";i:0;}', 1);
 
 -- --------------------------------------------------------
 
@@ -324,7 +331,14 @@ CREATE TABLE IF NOT EXISTS `soal` (
   `n_status` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`idSoal_user`),
   UNIQUE KEY `idSoal` (`idSoal`,`idUser`,`attempt`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `soal`
+--
+
+INSERT INTO `soal` (`idSoal_user`, `soal`, `pilihan1`, `pilihan2`, `pilihan3`, `pilihan4`, `jenissoal`, `keterangan`, `jawaban`, `jawabanuser`, `idSoal`, `idMateri`, `idGrup_kursus`, `idUser`, `idKursus`, `attempt`, `attempt_date`, `n_status`) VALUES
+(1, '1', NULL, NULL, NULL, NULL, NULL, 'a:1:{s:16:"id_generate_soal";s:1:"1";}', '1', '1', 2, 2, 11, 2268, 2, 1, '2016-02-16 02:47:55', 1);
 
 -- --------------------------------------------------------
 
@@ -341,7 +355,7 @@ CREATE TABLE IF NOT EXISTS `tbl_activity_log` (
   `datetimes` datetime NOT NULL,
   `n_status` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=53 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=60 ;
 
 --
 -- Dumping data for table `tbl_activity_log`
@@ -399,7 +413,14 @@ INSERT INTO `tbl_activity_log` (`id`, `activity`, `description`, `userID`, `sour
 (49, 'surf', 'landing home bsn', 0, '127.0.0.1', '2016-02-16 02:30:40', 1),
 (50, 'surf', 'landing home bsn', 0, '127.0.0.1', '2016-02-16 02:31:05', 1),
 (51, 'surf', 'landing home bsn', 0, '127.0.0.1', '2016-02-16 02:40:25', 1),
-(52, 'surf', 'landing home bsn', 0, '127.0.0.1', '2016-02-16 02:40:34', 1);
+(52, 'surf', 'landing home bsn', 0, '127.0.0.1', '2016-02-16 02:40:34', 1),
+(53, 'surf', 'landing home bsn', 0, '127.0.0.1', '2016-02-16 02:43:36', 1),
+(54, 'surf', 'landing home bsn', 0, '127.0.0.1', '2016-02-16 02:44:01', 1),
+(55, 'surf', 'landing home bsn', 0, '127.0.0.1', '2016-02-16 02:44:24', 1),
+(56, 'surf', 'landing home bsn', 0, '127.0.0.1', '2016-02-16 02:46:20', 1),
+(57, 'surf', 'landing home bsn', 0, '127.0.0.1', '2016-02-16 02:47:09', 1),
+(58, 'surf', 'landing home bsn', 0, '127.0.0.1', '2016-02-16 02:48:29', 1),
+(59, 'surf', 'landing home bsn', 0, '127.0.0.1', '2016-02-16 02:54:31', 1);
 
 -- --------------------------------------------------------
 
@@ -422,7 +443,14 @@ CREATE TABLE IF NOT EXISTS `tbl_generate_soal` (
   `n_status` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `idGrupKursus` (`idGrupKursus`,`idUser`,`attempt`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `tbl_generate_soal`
+--
+
+INSERT INTO `tbl_generate_soal` (`id`, `idGrupKursus`, `idKursus`, `idMateri`, `idUser`, `soal`, `generate_date`, `start_date`, `end_date`, `finish`, `attempt`, `n_status`) VALUES
+(1, 11, 0, 0, 2268, 'a:1:{i:0;s:1:"2";}', '2016-02-16 02:47:51', '2016-02-16 02:47:54', '2016-02-16 02:52:54', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -469,7 +497,15 @@ CREATE TABLE IF NOT EXISTS `tbl_user_activity` (
   `otherid` int(11) DEFAULT '0',
   `n_status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `tbl_user_activity`
+--
+
+INSERT INTO `tbl_user_activity` (`id`, `userid`, `kursusid`, `groupid`, `createdate`, `data`, `otherid`, `n_status`) VALUES
+(1, 2268, 1, 11, '2016-02-16 02:47:34', NULL, 0, 1),
+(2, 2268, 2, 11, '2016-02-16 02:47:43', NULL, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -500,7 +536,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `n_status` tinyint(3) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idUser`),
   UNIQUE KEY `username` (`username`,`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2268 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2269 ;
 
 --
 -- Dumping data for table `user`
@@ -508,54 +544,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`idUser`, `name`, `username`, `email`, `password`, `register_date`, `jeniskelamin`, `tempatlahir`, `tanggallahir`, `pendidikan`, `institusi`, `jenispekerjaan`, `hp`, `alamat`, `type`, `salt`, `login_count`, `email_token`, `is_online`, `n_status`) VALUES
 (1, 'admin', 'admin', 'admin@example.com', '73e040a176a1ed539ff946be05ad1fb80909eb7a', '2015-06-04 04:26:35', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 'codekir v3.0', 0, NULL, 0, 1),
-(8, 'bayu', 'bayu', 'andreass.bayu@gmail.com', '2bb92c65386296038f81d07760cbf113e13203f7', '2015-06-04 04:27:08', NULL, '', '0000-00-00', '', '', '', '', NULL, 2, 'c0d3k1r-v1.0', 65, 'nj71vbti90seqgkwy4o3mf8cpazl5du2xh6r', 0, 1),
-(9, 'ovan', 'ovan', 'ovan89@gmail.com', '4487befff6f8357fcd16bc9d040fe637b77c5037', '2015-07-05 21:29:44', NULL, 'dsada', '0000-00-00', 's1', 'ug', 'asadas', '123', NULL, 2, 'c0d3k1r-v1.0', 0, 'cmh8fa7u3lb9jtxe6z4dowr5ksiv2gq0y1pn', 0, 0),
-(11, 'Azmi', 'Azmi', 'Azmi.zuhdi@bsn.go.id', 'b0804ff4089959a3862b22837b203fcd9b52138f', '2015-07-24 09:58:35', NULL, 'Biak', '0000-00-00', 'Diploma', 'Bsn', 'Pns', '085770788944', NULL, 2, 'c0d3k1r-v1.0', 0, '5zotl81u6sp93mjgbv4ifrdh7ea0xy2wqcnk', 0, 0),
-(12, 'Heri Kurniawan', 'heribsn', 'heri.anak.bsn@gmail.com', '39a2318df778a13acedc13bf59cb51376007b2e2', '2015-07-29 13:06:27', NULL, 'Tegal', '1986-07-10', 'S1 Teknik Industri', 'BSN', 'Perancang Bahan Diklat', '081326960279', NULL, 2, 'c0d3k1r-v1.0', 0, 'hw03actvri5271jbmon64q9f8uxgdyzlpkes', 0, 0),
-(14, 'Andreas', 'cuncun', 'andre.hadiyono@gmail.com', 'd353adec13178bb195d4009cb589e106709331c6', '2015-07-30 22:28:16', NULL, 'Bogor', '1988-02-08', 's2', 'Gunadarma', 'Dosen', '09', '1', 2, 'c0d3k1r-v1.0', 0, 'b0s9kdj5rnhepf7oyul3mwix4g681qatcv2z', 0, 0),
-(16, 'Ovan Pulu', 'ovan', 'o.pulu@yahoo.com', '4487befff6f8357fcd16bc9d040fe637b77c5037', '2015-07-31 07:04:26', NULL, 'depok', '2015-01-07', 'sarjana', 'gunadarma', 'wiraswasta', '1231', 'depok', 2, 'c0d3k1r-v1.0', 3, 'c7uf01qdn269mzrlb3toavxikyhwps58e4jg', 1, 1),
-(19, 'Ovan pulu', 'ovancop', 'andreass.bayu@gmail.com', '5a48d826dbd2d3e0e9b147743425f161101939fe', '2015-07-31 18:08:17', NULL, 'jakarta', '1989-08-07', 'S1', 'Gunadarma', 'Dosen', '999999999', 'tes alamat', 2, 'c0d3k1r-v1.0', 0, 'we0nvybgc59fs847aixjkzr6hq1ud32pltmo', 0, 0),
-(20, 'joned', 'jun', 'pukiscuy@gmail.com', '4487befff6f8357fcd16bc9d040fe637b77c5037', '2015-07-31 18:11:13', NULL, 'jak', '2015-01-07', 's1', 'guna', 'a', '123', 'depok', 2, 'c0d3k1r-v1.0', 0, '1ifc4prab9zx53ltovsw70eu8g6jqhknm2dy', 0, 1),
-(21, 'Haryanto', 'harybsn', 'haryanto@bsn.go.id', 'ecc707d9f38fdbc6b129b7d14a83d37e6650d0fa', '2015-07-31 18:26:28', NULL, 'Tangerang', '1986-02-22', 'S1', 'BSN', 'PNS', '085213966553', 'Jakarta', 2, 'c0d3k1r-v1.0', 0, 'u1nxft6jegahpvwosbr0cl8zkq34i25y79dm', 0, 0),
-(26, 'azmi', 'azmi', 'azmizuhdi@gmail.com', 'bb5286e739375900eae3b131d840560f20cf10ab', '2015-07-31 18:48:37', NULL, 'irian jaya', '2015-01-07', 'd3', 'IT TELKOM', 'PNS', '085770788944', 'dsd', 2, 'c0d3k1r-v1.0', 0, '4vbaoty8cu2wxj7sgdeqnp03kl9m1rih56zf', 0, 0),
-(27, 'Haryanto', 'harydiklatbsn', 'hary.spirit@gmail.com', 'ecc707d9f38fdbc6b129b7d14a83d37e6650d0fa', '2015-08-03 07:59:01', NULL, 'Tangerang', '1986-02-22', 'S1', 'Pusdikmas BSN', 'PNS', '085213966553', 'Gedung 1 BPPT, Lantai 11, Jalan MH. Thamrin, Jakart', 2, 'c0d3k1r-v1.0', 12, 'gj3lwi6mr48h9ncvtdqu17e5b0oxpskyfa2z', 0, 1),
-(28, 'Kukuh Prawita Satriaji', 'kukuh.satriaji', 'kukuh.satriaji@bsn.go.id', 'a5ee97d08348a4e4f139b591c742917a618e2da5', '2015-08-04 10:37:47', NULL, 'Jakarta', '0000-00-00', 'Strata satu', 'Badan Standardisasi Nasional', 'Pegawai Negeri Sipil', '082111521899', 'Jl. Pinang Kalijati No.16B, Rt.011/09, Pondok Labu, Cilandak', 2, 'c0d3k1r-v1.0', 0, 'a6z9ylp57m1kseg0otq3hbwv2j8dc4xnrifu', 0, 0),
-(29, 'Andreass Bayu', 'andreass', 'submit.bayu@gmail.com', '9c899c7ff16a7d36235372a88f228ed35b1e8c37', '2015-08-06 15:38:30', NULL, 'Jakarta', '1989-08-09', 'S2', 'Oxford', 'System Architect', '011111111', 'Disney Land', 2, 'c0d3k1r-v1.0', 4, 'vno24ij6hmrcgs5u013dflwzpx7eqkb8ya9t', 1, 1),
-(30, 'Kukuh Prawita Satriaji', 'kukuh.satriaji', 'satriakukuh88@gmail.com', 'a5ee97d08348a4e4f139b591c742917a618e2da5', '2015-08-06 16:00:31', NULL, 'Jakarta', '0000-00-00', 'Strata satu', 'Badan Standardisasi Nasional', 'Pegawai Negeri Sipil', '082111521899', 'Jl. Pinang Kalijati No.16B, Rt.011/09. Pondok Labu. Cilandak. Jakarta Selatan', 2, 'c0d3k1r-v1.0', 5, 'j7re0ybxn16s8kuzhtvwim52d4olfca9pg3q', 1, 1),
-(31, 'Albertus Bayu Aji P. ST., MMSi', 'albertbayu', 'bhayanakadigital@gmail.com', '444237ea5e1cdcf8e8e12bdb51f826f584f38d8f', '2015-08-06 17:04:07', NULL, 'Jakarta', '1989-08-09', 'S2', 'Gunadarma', 'CTO', '089999999', 'Margonda', 2, 'c0d3k1r-v1.0', 0, 'imy3x95qvwuj1ebokc2dpgh47rasz6n0fl8t', 0, 0),
-(32, 'Romen Rifian', 'rrifian', 'romenrifian@yahoo.com', 'c55ffffbc0981a5161da0dfc19909691a283b3de', '2015-08-10 14:54:54', NULL, 'Bandar Lampung', '1973-01-01', 'Sarjana Sain (Kimia)', 'PT. Freeport Indonesia', 'Quality Assurance/Technical Advisor Superintendent', '081318459579', 'Laboratorium Lingkungan PT. Freeport Indonesia', 2, 'c0d3k1r-v1.0', 1, 'u5jlsa9pv8z1efhw67qrynmb2gd30ok4citx', 1, 1),
-(33, 'Sugiartha', 'sugiartha', 'sugiartha26@yahoo.co.id', '72e4fe2d88f917ffb4f739dacb8b77a8ab60c15c', '2015-08-10 15:51:08', NULL, 'Pagesangan', '0000-00-00', 'Sarjana', 'Gunadarma', 'Mahasiswa', '087863648938', 'Kelapa Dua', 2, 'c0d3k1r-v1.0', 1, 'andm3khs6ubt8jwpreqxoz9y0v754gic2lf1', 1, 1),
-(34, 'Ariffudin', 'ariffu', 'ariffu@gmail.com', '5019fe1a59418645cb1d11b0b60bad3d254110f0', '2015-08-10 16:29:30', NULL, 'purworejo', '1972-02-13', 'Sarjana Teknik Elektro', 'BMKG', 'PNS', '0817129925', 'Kompleks Pesona Anggrek Harapan E14/4\r\nBekasi Utara', 2, 'c0d3k1r-v1.0', 1, 'kyeliatj5qgsmo0fcr2z64xh379pn8db1uvw', 1, 1),
-(35, 'Kuwat Triyana', 'triyana', 'triyana@ugm.ac.id', '635c320556c7bc04d67ad6a77852dc3eb2aaf7f1', '2015-08-10 17:28:04', NULL, 'Semarang', '0000-00-00', 'S3', 'Universitas Gadjah Mada', 'Dosen', '085728152871', 'Jurusan Fisika FMIPA UGM\r\nSekip Utara BLS 21 Yogyakarta', 2, 'c0d3k1r-v1.0', 2, 'vic5u4swjf6n2okmdx0etzpqal89h731ygrb', 1, 1),
-(36, 'Nidia Lestari', 'Nidia', 'nidianina14@akprind.ac.id', 'd353adec13178bb195d4009cb589e106709331c6', '2015-08-11 09:38:48', NULL, 'Padang', '0000-00-00', 'Strata-2', 'Institut Sains & Teknologi Akprind', 'Dosen', '085222979026', 'Jl. Pogung dalangan no. 21, sleman Yogyakarta', 2, 'c0d3k1r-v1.0', 0, 'pm0sh9xw6qkcrjogliuzdnv7et1yf5a3b824', 0, 1),
-(37, 'Austriliana', 'Austriliana', 'austriliana@yahoo.com', '0701b32100570b21e51793de6802c761b09b5d1a', '2015-08-11 10:17:44', NULL, 'Jakarta', '1977-03-01', 'S2', 'Universitas Negeri Jakarta', 'Coordinator', '+62 21 68364646', 'Kayu Putih', 2, 'c0d3k1r-v1.0', 1, 't8dzy9v5kq0pf6jmax7ui1scnw2be3g4hrol', 1, 1),
-(38, 'Agus Fanar Syukri', 'afanars', 'agus.fanar.syukri@lipi.go.id', '637f9818406a7cd11058e14b1c2d58b97cad8e13', '2015-08-11 10:22:35', NULL, 'Demak', '1969-09-15', 'S3, Manajemen Informatika', 'LIPI', 'Peneliti', '081511424114', 'P2SMTP-LIPI, Kawasan PUSPIPTEK, Gd.417, Setu, Tangerang Selatan. Telpon: 021-7587-1130', 2, 'c0d3k1r-v1.0', 0, 'r05e4t9qwvmiuzkfb8ldncjpo2g63yxs7a1h', 0, 1),
-(39, 'Wahyu Pradana Arsitika', 'wpradana', 'wpradana@gmail.com', '2027beb87d4b328af01385783e4348535d31093f', '2015-08-11 10:49:08', NULL, 'purworejo', '1986-06-08', 'sarjana', 'Lab Kalibrasi BBKKP', 'PNS', '+6281564673125', 'Balai Besar Kulit, Karet, dan Plastik\r\nJl. Sokonandi no. 9 Yogyakarta', 2, 'c0d3k1r-v1.0', 0, 'lefmk8g4px2oj0bwyt9cvuqszrh1i7dn53a6', 0, 1),
-(40, 'FERRY', 'ferrych', 'ferrych@bsn.go.id', 'ec9f960a8564b7f6a4780266b6db0eff50a922cf', '2015-08-11 10:54:26', NULL, 'Jakarta', '1980-02-29', 'Satrjana Teknik', 'Badan Standardisasi Nasional', 'Pengevaluasi Bahan Acuan', '08561133755', 'Gedung I BPPT Lantai 14, Jl. M.H. Thamrin No. 8, Kebon Sirih, Kec. Menteng', 2, 'c0d3k1r-v1.0', 1, '7stcmju48v1fqe56ydax3zirbgpk0now9l2h', 1, 1),
-(41, 'Budi Yasri', 'Budi Yasri', 'budiyasri@yahoo.com', '8804d4027b2eb68e3860fa39dc8e48a90e62bf7a', '2015-08-11 11:18:33', NULL, 'Kabupaten Agam ', '1978-06-26', 'S2 Ilmu Ekonomi', 'Kementerian Perdagangan', 'Widyaiswara Muda', '085216404774', 'PPSDMK Kemendag Jl Daeng M Ardiwinata km 3,4 Cihanjuang Parongpong Bandung Barat 40559', 2, 'c0d3k1r-v1.0', 0, 'zfy6posb3lcr07nukw1i9gt2xmjdqv85e4ah', 0, 1),
-(42, 'R. Rudi Anggoro Samodro', 'Rudi', 'anggoro_rudi@yahoo.com', 'ab94269e79f053feaeffe2c346615ae2cb01b980', '2015-08-11 13:28:58', NULL, 'Kulon Progo', '1981-06-29', 'S2', 'Puslit Metrology LIPI', 'Peneliti', '081931734335', 'Kompleks Puspiptek Blok IV H-2, Setu, Tangsel, Banten, 15314 ', 2, 'c0d3k1r-v1.0', 1, '5rzh9tlgsj1wbpaudxcov6q08nky3m4fie72', 1, 1),
-(43, 'Ridwan Widilaksono', 'wawa_opz', 'wawakuawan@gmail.com', '6f563f00e42bb4422f2de24793492327499e5e8b', '2015-08-11 15:54:32', NULL, 'Yogyakarta', '1987-09-09', 'SMTI', 'PT. Tigaraksa Satria, Tbk', 'Process Development Coordinator', '085643359950', 'Jalan Cangkringan Km 1.5 Dhuri Tirtomartani Kalasan Sleman DI Yogyakarta 55571', 2, 'c0d3k1r-v1.0', 1, 'yeacu4wlpfj1msb0zhdkxi5vn9o3rq2876gt', 1, 1),
-(44, 'adhitya', 'adhitya', 'adhitya.fajar@mittalsteel.com', '4f3b764fa081e5481c0ae1e81c37f22f1c010758', '2015-08-11 16:48:03', NULL, 'Surabaya', '0000-00-00', 'Sarjana Teknik', 'MANUFACTURER', 'Karyawan', '081318742834', 'PT. ISPAT INDO', 2, 'c0d3k1r-v1.0', 0, 'aje9l7xgbcd3rs4uhn2m0kt86yzwf1oqv5ip', 0, 1),
-(45, 'M. Arbi Hadiyat', 'mocharbi', 'arbi@staff.ubaya.ac.id', 'ed8b5cef53a743f55d16055af87850f50f300e29', '2015-08-12 10:14:16', NULL, 'surabaya', '1978-02-22', 'S2', 'Universitas Surabaya', 'Dosen', '081330313414', 'Jl. Tarakan III/5 Perumahan GKB, Gresik 61151, Jatim', 2, 'c0d3k1r-v1.0', 0, '4nymrgku2j65a8delfxtbw0zocqpi719svh3', 0, 1),
-(46, 'Adindra Vickar Ega', 'adindravickar', 'adindravickar@gmail.com', 'a696ecd55e59c8171150d963b7c5cf8ad0ad0bfe', '2015-08-12 11:33:17', NULL, 'Madiun', '0000-00-00', 'S1 TEKNIK FISIKA UGM', 'PUSLIT METROLOGI LIPI', 'PENELITI', '085646624254', 'KOMPLEKS PUSPIPTEK BLOK III D / 16\r\nSETU, TANGSEL, BANTEN', 2, 'c0d3k1r-v1.0', 4, 'tk3r59jowug0iecmpfav82hs17byxn6d4lqz', 1, 1),
-(47, 'Sri Lestari', 'lestari', 'lestarionrizal71@gmail.com', '5872cc3911b776c6ea3a83ffdd320c65c7cb1365', '2015-08-12 15:06:49', NULL, 'sragen', '1971-04-26', 's2', 'FK USU', 'Dosen', '+6281397628448', 'Jln. Setiabudi pasar 1, gang Adi no 7 Tanjung Sari Medan', 2, 'c0d3k1r-v1.0', 0, '9uq05yez36slodti128aknfhvxj4pgr7bmwc', 0, 1),
-(48, 'habibi bayu setiawan', 'habib', 'graphicon89@gmail.com', 'f6cf8ef8e746eb754b698244d3554e3672070b40', '2015-08-13 08:34:06', NULL, 'jogjakarta', '1989-01-02', 'Sarjana', 'swasta', 'Pegawai Negeri', '', '', 2, 'c0d3k1r-v1.0', 1, 'doq14lskhnu6gc2z7bytxmfpjeir8aw359v0', 1, 1),
-(49, 'Bayu Saputra', 'Bayu', 'bayu.saputra81@gmail.com', 'adc5966ba488c8a145206d481123ecb31039e34f', '2015-08-13 11:24:39', NULL, 'Sungauiliat', '1981-04-01', 'Sarjana', 'Dinas Perindustrian dan Perdagangan', 'PNS', '085366491199', 'Jl. Depati Amir No.203 km.3 \r\nPangkalpinang - 33134', 2, 'c0d3k1r-v1.0', 0, 'tw1hcpg4xrd9ju2ebq85ynz3ikomlvs60a7f', 0, 1),
-(50, 'Siti Jamillah', 'Jamilah', 'jamilah@mutucertification.com', 'f4f9e354630b398f410b3a28517c16af4e5adf35', '2015-08-14 12:14:46', NULL, 'bandung', '1983-11-11', 'Magister Manajemen', 'PT Mutuagung Lestari ', 'Karyawan swasta', '081219015654', 'Jl. Raya Bogor KM 33,5 No 19 Cimanggis Depok ', 2, 'c0d3k1r-v1.0', 0, 'an0y9hxbmo1dc7k5pzgsfe2t4863qwuvijrl', 0, 0),
-(51, 'Heri Kurniawan', 'heri', 'heri.anak.bsn@gmail.com', '39a2318df778a13acedc13bf59cb51376007b2e2', '2015-08-14 17:13:25', NULL, 'Tegal', '1986-10-07', 'S1 Teknik Industri', 'Telkom University', 'Diklat BSN', '081326960279', 'Gd. 1 BPPT, Jl MH Thamrin', 2, 'c0d3k1r-v1.0', 0, 'k4rqpboec03uxwf2di6hz7gsa5vt9l8n1jmy', 0, 0),
-(52, 'amaz_harry', 'amaz_harry', 'amaz_harry@yahoo.com', 'ecc707d9f38fdbc6b129b7d14a83d37e6650d0fa', '2015-08-14 17:50:53', NULL, 'Tangerang', '1986-02-22', 'S1', 'BSN', 'Public Servant', '085213966553', 'jakarta', 2, 'c0d3k1r-v1.0', 2, 'e5si6t1nghjxar03cw8db7umz4lokf9y2vpq', 0, 1),
-(53, 'Ahmad Hasan Asari', 'asari', 'ahmad.hasan.a@mail.ugm.ac.id', '98b271658b9cb680258d27d0cd34532da0903814', '2015-08-15 07:41:48', NULL, 'Demak', '0000-00-00', 'S1', 'UGM', 'Mahasiswa', '089618871491', 'Jalan Pogung Dalangan No.25 Sinduadi Mlati Sleman', 2, 'c0d3k1r-v1.0', 0, '2go1j7mcv5ftnlpx46z8k3ds0arihubqy9ew', 0, 1),
-(54, 'Maya Kusuma Wardani', 'Maya Kusuma', 'maya.kusuma@bsn.go.id', '9a63f3e9c0b3cae868bc63396642e8c43d55817e', '2015-08-19 15:14:32', NULL, 'Klaten', '1990-02-05', 'S1', 'BSN', 'PNS', '085842358040', '', 2, 'c0d3k1r-v1.0', 1, '21uqjbhgmaslne86fwdt3yrpxoi40c9z5kv7', 1, 1),
-(55, 'Andreas Hadiyono', 'cuncun2015', 'andre.hadiyono.web@gmail.com', 'eca00b0765b02352259c2d7d1283932b93b3870d', '2015-08-19 20:47:58', NULL, 'bogor', '1988-02-08', 's2', 'Gunadarma', 'Dosen', '08179052609', '-', 2, 'c0d3k1r-v1.0', 3, 'zu67shcvx8ptrwqgjmoda52y9i3f0lb4ken1', 1, 1),
-(56, 'anne', 'anne', 'kristiati.andriani@gmail.com', '8b438084d5e30c4c317172a068128782c535ca7f', '2015-08-20 07:33:25', NULL, 'Bandung', '1976-12-28', 'Pascasarjana', 'Badan Standardisasi Nasional', 'Pegawai Negri Sipil', '081399755439', 'Graha Raya', 2, 'c0d3k1r-v1.0', 0, 'ziowh9rt6yvg8q4k2cfp7jmudbex3n1a0l5s', 0, 1),
-(57, 'Heri Kurniawan', 'heri', 'heri.kurniawan@bsn.go.id', '06da42afdf7e7f79a821d9fda15756ece62b389e', '2015-08-20 08:26:46', NULL, 'Tegal', '1986-10-07', 'S1 Teknik Industri', 'Telkom University', 'Diklat BSN', '081326960279', 'Gedung 1 BPPT, Jl. MH Thamrin Jakpus', 2, 'c0d3k1r-v1.0', 1, 'ntqeyb8gdoj0rfl37awkcui9svz152hp6mx4', 1, 1),
-(58, 'fadly', 'fadly26', 'fadly_amrii@yahoo.co.id', 'd60142906649bc308c8c5b26b600f85c4e1140e1', '2015-08-20 10:15:57', NULL, 'depok', '1985-11-26', 'S1', 'BSN', 'PNS', '082114807807', 'JL. SALAM NO 7 DEPOK UTARA', 2, 'c0d3k1r-v1.0', 3, 'ipq6fv9dyxjoa2t0hekc3zbur5g1mwsn874l', 1, 1),
-(59, 'Ahsonul Anam', 'ahsonosh', 'ahsonosh@yahoo.com', '8e0ee7cad5ac1284f70f7883870f4611715fa5ce', '2015-08-24 14:32:02', NULL, 'Demak', '1967-02-02', 'S2', 'Balai Besar Teknologi Energi, BPPT', 'Penyelia Lab. Pengujian Emisi', '082112848089', 'B2TE, BPPT, Kawasan Puspiptek, Setu< Tangerang Selatan, Banten, 15838', 2, 'c0d3k1r-v1.0', 3, '680uqz5mfdy9acp1r4wtek3ioj7gb2xlnshv', 1, 1),
-(60, 'Jamilah', 'Jamilah Ghozy', 'jamilahghozy@gmail.com', '01d30d08a063a1bce456787c907b7d99ae4b89c0', '2015-08-24 14:39:30', NULL, 'Purwakarta', '1980-08-11', 'Sarjana Kimia', 'Laboratoriu Kimia Terpadu IPB', 'Analis dan Staff Mutu Lab.Kimia Terpadu IPB', '081219287876', 'Kampus IPB Baranangsiang Wing Kimia Lt. dasar. Jl. Pajajaran Bogor 16144', 2, 'c0d3k1r-v1.0', 0, 'x9bjym6veluoic324fkg5qz7srhwdtp810an', 0, 1),
-(61, 'EKO HENDRI GUNAWAN', 'ekohendri', 'ekohendri@gmail.com', 'abcd53dfa709dd19b2eff0c5bb84fdd58a7df865', '2015-08-24 19:43:48', NULL, 'JAKARTA', '0000-00-00', 'SARJANA', 'BADAN KARANTINA IKAN PENGENDALIAN MUTU DAN KEAMANAN HASIL PERIKANAN KEMENTERIAN KELAUTAN DAN PERIKANAN', 'PNS', '082113733662', 'TAMAN BANTEN LESTARI BLOK F1B NO.16 KOTA SERANG BANTEN', 2, 'c0d3k1r-v1.0', 2, 'nhygsdfvub0tapek12458mroiw7qc6zx93jl', 0, 1),
-(62, 'Eny Susilowati', 'eneeusil', 'eneeusil@yahoo.co.id', '87f6d62681c081d6c45a402fd38c37bde26e3301', '2015-08-25 18:38:17', NULL, 'Surabaya', '1980-07-21', 'S1', 'Kementerian Kelautan dan Perikanan', 'PNS', '081298253553', 'Donowati 5/39, Sukomanunggal, Surabaya', 2, 'c0d3k1r-v1.0', 0, 'vauk8g1hx3q5izdwtfbc4r0eln9sy72jom6p', 0, 1),
-(63, 'Alfrida Esther Suoth', 'ida suoth', 'idasuoth@yahoo.com', 'f33ef00e9705bceaeff51be940b4a9a874ca9f2c', '2015-08-27 17:00:49', NULL, 'pangkajene kepulauan', '0000-00-00', 'sarjana', 'Kementerian Lingkungan Hidup dan Kehutanan', 'PNS', '081310177898', 'Kawasan Puspiptek Gedung 210, Jl. Raya Puspiptek Serpong, Tangerang Selatan ', 2, 'c0d3k1r-v1.0', 0, 'q8ksdm76lx9t5wu4anfr1vcozjg3i0b2epyh', 0, 0),
-(2267, 'Evans Winanda Wirga', 'evanswinanda', 'evanswinanda@gmail.com', '0044f8c76967311d54fe7a4837844e5fa07b2421', '2015-09-02 15:59:03', NULL, 'bangkinang', '0000-00-00', 'S2 MMSI', 'Univeritas Gunadarma', 'Dosen', '081294111369', 'Pondok Cina Depok', 2, 'c0d3k1r-v1.0', 1, '16gnk3qi7t0yfexs59zumclwdovrpjba428h', 1, 1);
+(2268, 'bayu', 'bayu', 'andreass.bayu@gmail.com', 'a79463c981d361d67628b9be3ee75eded30295bf', '2016-02-15 19:45:55', NULL, 'Jakarta', '1989-08-09', 'S2', 'Gunadarma', 'Dosen', '2331231', 'Depok', 2, 'c0d3k1r-v1.0', 1, '0xnh36vp4ayjzse7gmbki5c2rfo9utq1w8dl', 1, 1);
 
 -- --------------------------------------------------------
 
